@@ -3,21 +3,18 @@ import json
 from jsonschema import validate, ValidationError
 import pytest
 
-# The URL to test
+
 url = "https://restcountries.com/v3.1/all/"
 
-# Load your JSON schema
+# Load JSON schema
 with open("schema.json", "r") as schema_file:
     schema = json.load(schema_file)
 
 def test_api_schema_validation():
-    # Send GET request to the API
     response = requests.get(url)
 
-    # Check that the response is successful (status code 200)
     assert response.status_code == 200, f"Expected status code 200 but got {response.status_code}"
 
-    # Get the JSON data from the response
     response_data = response.json()
 
     # Ensure each country has a 'capital' field, adding a default if missing
@@ -34,10 +31,8 @@ def test_api_schema_validation():
 
 
 def test_number_of_countries():
-    # Send GET request to the API
     response = requests.get(url)
     
-    # Check that the response is successful (status code 200)
     assert response.status_code == 200, f"Expected status code 200 but got {response.status_code}"
 
     # Get the JSON data from the response
@@ -51,10 +46,8 @@ def test_number_of_countries():
 
 
 def test_south_africa_languages():
-    # Send GET request to the API
     response = requests.get(url)
     
-    # Check that the response is successful (status code 200)
     assert response.status_code == 200, f"Expected status code 200 but got {response.status_code}"
 
     # Get the JSON data from the response
