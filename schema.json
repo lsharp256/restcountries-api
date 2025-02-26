@@ -1,0 +1,48 @@
+{
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "object",
+          "properties": {
+            "common": { "type": "string" },
+            "official": { "type": "string" }
+          },
+          "required": ["common", "official"]
+        },
+        "capital": { 
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "region": { "type": "string" },
+        "subregion": { "type": "string" },
+        "flags": {
+          "type": "object",
+          "properties": {
+            "svg": { "type": "string" },
+            "png": { "type": "string" }
+          },
+          "required": ["svg", "png"]
+        },
+        "languages": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        },
+        "population": { "type": "integer" },
+        "area": { "type": "number" },
+        "currencies": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "symbol": { "type": "string" }
+            }
+          }
+        }
+      },
+      "required": ["name", "capital", "region", "flags"]
+    }
+  }
+  
